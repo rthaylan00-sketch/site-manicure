@@ -30,6 +30,15 @@ header p {
   padding: 40px 20px;
   text-align: center;
 
+ .card { 
+   background-color: white;
+   border-radius: 12px 
+   padding: 20px
+   margin-bottom: 16px
+   box-shadow: 0 2px 8px rgba(0,0,0,0,1.)
+ }
+    
+
   
   
   
