@@ -1,1 +1,29 @@
+/* GERAL */
+* { 
+ margin: 0;
+ padding: 0;
+ box-sizing: 0;
+}
+body {
+ font-family: sans-sarif;
+ background-color: #fff0f5;
+ color: #333;
+}
+/* TOPO */
+header {
+  background-color: #e91e8c;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px
+}
+header p {
+  font-size: 16px
+}
 
+  
+  
+  
