@@ -37,6 +37,16 @@ header p {
    margin-bottom: 16px
    box-shadow: 0 2px 8px rgba(0,0,0,0,1.)
  }
+ .card h3 { 
+   font-size: 18px;
+   margin-bottom: 8px;
+   color: #e91e8c;
+ }
+ .card p {
+   font-size: 14px;
+   color: #666;
+ }
+  
     
 
   
