@@ -1,4 +1,6 @@
 /* ===== GERAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,109 +8,148 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff5f9;
+  font-family: 'Lato', sans-serif;
+  background-color: #fdf6f0;
   color: #333;
-  font-size: 18px;
 }
 
 /* ===== HEADER ===== */
 header {
-  background: linear-gradient(135deg, #e91e8c, #ff6ec7);
+  background-color: #1a1a1a;
   color: white;
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 24px;
+  position: relative;
+}
+
+header::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #c0392b;
+  margin: 20px auto 0;
 }
 
 header h1 {
-  font-size: 48px;
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
   font-weight: 900;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
+  color: white;
   margin-bottom: 12px;
 }
 
 header p {
-  font-size: 18px;
-  opacity: 0.9;
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c0392b;
+  font-weight: 300;
 }
 
 /* ===== SERVIÇOS ===== */
 #servicos {
-  padding: 60px 24px;
+  padding: 70px 24px;
   text-align: center;
+  background-color: #fdf6f0;
 }
 
 #servicos h2 {
-  font-size: 32px;
-  color: #e91e8c;
-  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+#servicos h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #c0392b;
+  margin: 12px auto 40px;
 }
 
 .card {
   background: white;
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 4px;
+  padding: 32px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 16px rgba(233, 30, 140, 0.15);
-  border-left: 5px solid #e91e8c;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  border-top: 4px solid #c0392b;
+  text-align: left;
 }
 
 .card h3 {
+  font-family: 'Playfair Display', serif;
   font-size: 22px;
-  color: #e91e8c;
+  color: #1a1a1a;
   margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 16px;
-  color: #666;
-  line-height: 1.6;
+  font-size: 15px;
+  color: #777;
+  line-height: 1.7;
 }
 
 /* ===== BOTÃO AGENDAR ===== */
 #agendar {
   text-align: center;
-  padding: 60px 24px;
-  background: linear-gradient(135deg, #e91e8c, #ff6ec7);
+  padding: 80px 24px;
+  background-color: #1a1a1a;
 }
 
 #agendar h2 {
+  font-family: 'Playfair Display', serif;
   color: white;
-  font-size: 32px;
+  font-size: 36px;
   margin-bottom: 12px;
 }
 
 #agendar p {
-  color: white;
-  font-size: 18px;
-  margin-bottom: 30px;
-  opacity: 0.9;
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 36px;
+  letter-spacing: 1px;
 }
 
 button {
-  background-color: white;
-  color: #e91e8c;
+  background-color: #c0392b;
+  color: white;
   border: none;
-  padding: 18px 48px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
+  padding: 18px 52px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 }
 
 /* ===== FORMULÁRIO ===== */
 #formulario {
-  padding: 60px 24px;
+  padding: 70px 24px;
   max-width: 600px;
   margin: 0 auto;
 }
 
 #formulario h2 {
+  font-family: 'Playfair Display', serif;
   text-align: center;
-  color: #e91e8c;
-  font-size: 32px;
-  margin-bottom: 40px;
+  color: #1a1a1a;
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+#formulario h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #c0392b;
+  margin: 12px auto 40px;
 }
 
 .campo {
@@ -118,43 +159,49 @@ button {
 }
 
 .campo label {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 700;
   color: #333;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   margin-bottom: 8px;
 }
 
 .campo input,
 .campo select {
   padding: 16px;
-  border: 2px solid #e8b4d0;
-  border-radius: 12px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
   font-size: 16px;
   outline: none;
   background: white;
   transition: border 0.3s;
+  font-family: 'Lato', sans-serif;
 }
 
 .campo input:focus,
 .campo select:focus {
-  border-color: #e91e8c;
+  border-color: #c0392b;
 }
 
 #form-agendamento button {
   width: 100%;
   padding: 18px;
-  font-size: 18px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #e91e8c, #ff6ec7);
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  background-color: #c0392b;
   color: white;
   border: none;
-  font-weight: bold;
+  font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 /* ===== RODAPÉ ===== */
 footer {
-  background-color: #1a1a1a;
+  background-color: #111;
   color: white;
   text-align: center;
   padding: 40px 20px;
@@ -162,6 +209,7 @@ footer {
 
 footer p {
   margin-bottom: 8px;
-  font-size: 16px;
-  opacity: 0.8;
+  font-size: 14px;
+  color: #aaa;
+  letter-spacing: 1px;
 }
