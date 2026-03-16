@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang:"pt-BR">
 
+  <head>
+    <title>LU NAILS — Agendamento</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+
+  <body>
+
+    <header>
+      <h1>LU NAILS 💅</h1>
+      <p>Faça seu agendamento</p>
+    </header>
+
+    <section id="formulario">
+      <h2>Preencha seus dados</h2>
+  
+    <form id="form-agendamento">
+     
+      <div class="campo">
+        <label>Nome Completo</label>
+        <input type="text" id="nome" placeholder="Seu nome"/>
+      </div>
+
+      <div class="campo">
+       <label>Telefone</label>
+       <input type="tel" id="telefone" placeholder="(11) 99999-9999"/>
+      </div>
+      <div class="campo">
+        <label>Serviço</label>
+        <select id="servico">
+          <option value="">Selecione...</option>
+          <option value="manicure">Manicure</option>
+          <option value="alogamento">Alongamento</option>
+        </select>
+       </div>
+      <div class="campo">
+        <label>Data</label>
+        <input type="date" id="data"/>  
+      </div>
+      <div class="campo">
+        <label>Horário</label>
+        <input type="time" id="horario"/>
+      </div>
+
+      <button type="submit">Confirmar Agendamento</button>
+    </form>
+    </section>
+
+    <footer>
+      <p>Luiza Alves</p>
+      <p>📲 (11) 99999-9999</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
