@@ -105,12 +105,18 @@ form.addEventListener('submit', async function(e) {
     alert('Agendamento confirmado!');
 
     // ===== WHATSAPP =====
-    const mensagem = `Olá! Gostaria de agendar:
+    const mensagem = `Olá! Tudo bem? 😊
+
+Gostaria de agendar um horário:
+
 💅 Serviço: ${servico}
 📅 Data: ${data}
 ⏰ Horário: ${horario}
+
 👤 Nome: ${nome}
-📱 Telefone: ${telefone}`;
+📱 Telefone: ${telefone}
+
+Aguardo confirmação 💖`;
 
     const numero = '5511973086170';
 
