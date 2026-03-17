@@ -7,6 +7,13 @@ const firebaseConfig = {
   appId: "1:627296929583:web:d1773f21704407b41a43da"
 };
 
+// Preenche os beijinhos
+const div = document.getElementById('beijinhos');
+if (div) {
+  div.textContent = '💋'.repeat(300);
+}
+
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
