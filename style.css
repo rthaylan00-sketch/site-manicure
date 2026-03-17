@@ -237,6 +237,16 @@ header {
   letter-spacing: 1px;
 }
 
-header {
-  padding: 16px 24px 8px
+header #logo-area h1 {
+  font-size: 32px;
+}
+
+header #logo-area h2 {
+  font-size: 32px;
+  margin-bottom: 2px;
+}
+
+header #logo-area p {
+  font-size: 10px;
+  margin-bottom: 0;
 }
