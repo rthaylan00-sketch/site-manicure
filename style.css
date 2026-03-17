@@ -293,5 +293,48 @@ footer p {
   border-bottom: 1px solid #ffe4ef;
 }
 
+/* ===== DETALHES DOS SERVIÇOS (EXPANDIR) ===== */
+
+.detalhes {
+  display: none;
+  margin-top: 15px;
+  animation: fadeIn 0.3s ease;
+}
+
+.detalhes.ativo {
+  display: block;
+}
+
+.img-servico {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* efeito suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* deixa o card clicável */
+.card {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
   
   
