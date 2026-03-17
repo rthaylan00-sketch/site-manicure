@@ -218,13 +218,14 @@ footer p {
   margin-top: 10px;
 }
 
-/* ===== HEADER AGENDAMENTO ===== */
+  /* ===== HEADER AGENDAMENTO ===== */
 header {
   background-color: #1a1a1a;
   text-align: center;
-  padding: 40px 24px;
+  padding: 24px 24px 16px;
   position: relative;
 }
+
 
 #voltar {
   position: absolute;
@@ -236,9 +237,6 @@ header {
   letter-spacing: 1px;
 }
 /* ===== HEADER AGENDAMENTO ===== */
-header {
-  padding: 30px 24px 20px;
-}
 
 header #logo-area h1 {
   font-size: 36px;
