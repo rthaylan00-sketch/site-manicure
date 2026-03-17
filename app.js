@@ -1,4 +1,3 @@
-// ===== CONFIGURAÇÃO DO FIREBASE =====
 const firebaseConfig = {
   apiKey: "AIzaSyCeQD2PNlXf2j8lTbit6ktOZR2FtAufLbY",
   authDomain: "agendapro-788d0.firebaseapp.com",
@@ -9,11 +8,9 @@ const firebaseConfig = {
   measurementId: "G-66SHNPQPMR"
 };
 
-
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-// ===== FORMULÁRIO =====
 const form = document.getElementById('form-agendamento');
 
 form.addEventListener('submit', async function(e) {
@@ -30,36 +27,40 @@ form.addEventListener('submit', async function(e) {
     return;
   }
 
-  // Verifica se horário já está ocupado
-  const snapshot = await db.collection('agendamentos')
-    .where('data', '==', data)
-    .where('horario', '==', horario)
-    .get();
+  try {
+    const snapshot = await db.collection('agendamentos')
+      .where('data', '==', data)
+      .where('horario', '==', horario)
+      .get();
 
-  if (!snapshot.empty) {
-    alert('Este horário já está ocupado! Por favor escolha outro.');
-    return;
-  }
+    alert('Encontrados: ' + snapshot.size + ' agendamentos para ' + data + ' às ' + horario);
 
-  // Salva o agendamento no Firebase
-  await db.collection('agendamentos').add({
-    nome,
-    telefone,
-    servico,
-    data,
-    horario,
-    criadoEm: new Date()
-  });
+    if (!snapshot.empty) {
+      alert('Este horário já está ocupado! Por favor escolha outro.');
+      return;
+    }
 
-  // Abre o WhatsApp
-  const mensagem = `Olá Luiza! Gostaria de agendar:
+    await db.collection('agendamentos').add({
+      nome,
+      telefone,
+      servico,
+      data,
+      horario,
+      criadoEm: new Date()
+    });
+
+    const mensagem = `Olá Luiza! Gostaria de agendar:
 💅 Serviço: ${servico}
 📅 Data: ${data}
 ⏰ Horário: ${horario}
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}`;
 
-  const numero = '5511973086170';
-  const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
-  window.open(url, '_blank');
+    const numero = '5511973086170';
+    const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+
+  } catch(erro) {
+    alert('Erro: ' + erro.message);
+  }
 });
