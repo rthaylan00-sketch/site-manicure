@@ -19,7 +19,8 @@ form.addEventListener('submit', async function(e) {
   const nome = document.getElementById('nome').value;
   const telefone = document.getElementById('telefone').value;
   const servico = document.getElementById('servico').value;
-  const data = document.getElementById('data').value;
+  const dataRaw = document.getElementById('data').value;
+  const data = new Date(dataRaw).toISOString().split('T')[0];
   const horario = document.getElementById('horario').value;
 
   if (!nome || !telefone || !servico || !data || !horario) {
