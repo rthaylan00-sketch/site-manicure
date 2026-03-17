@@ -27,10 +27,11 @@ form.addEventListener('submit', function(e) {
 📱 Telefone: ${telefone}`;
 
   // Número do WhatsApp da Luiza (substitui pelo número real)
-  const numero = '+551197308-6170';
+  const numero = '+5511973086170';
 
   // Abre o WhatsApp
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+  const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+
   window.open(url, '_blank');
 });
 
