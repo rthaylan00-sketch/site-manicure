@@ -114,7 +114,7 @@ form.addEventListener('submit', async function(e) {
 
     const numero = '5511973086170';
 
-    const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
     window.open(url, '_blank');
 
