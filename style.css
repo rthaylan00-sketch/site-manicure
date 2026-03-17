@@ -336,5 +336,14 @@ footer p {
   transform: scale(0.98);
 }
 
+
+/* ===== LOGO ===== */
+#logo {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 40px;
+}
+
   
   
