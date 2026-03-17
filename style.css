@@ -277,4 +277,21 @@ footer p {
   font-weigth: 700;
   color: #d63f6e;
 }
+
+/* ===== LISTAS DE PREÇOS ===== */
+.preco-lista {
+  display: Flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+.preco-lista span {
+  font-size: 13px;
+  color: #d63f6e;
+  font-weigth: 600;
+  padding: 6px 0;
+  border-bottom: 1px solid #ffe4ef;
+}
+
+  
   
