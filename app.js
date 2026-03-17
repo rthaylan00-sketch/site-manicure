@@ -33,8 +33,6 @@ form.addEventListener('submit', async function(e) {
       .where('horario', '==', horario)
       .get();
 
-    alert('Encontrados: ' + snapshot.size + ' agendamentos para ' + data + ' às ' + horario);
-
     if (!snapshot.empty) {
       alert('Este horário já está ocupado! Por favor escolha outro.');
       return;
@@ -57,8 +55,7 @@ form.addEventListener('submit', async function(e) {
 📱 Telefone: ${telefone}`;
 
     const numero = '5511973086170';
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-
+    const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 
   } catch(erro) {
