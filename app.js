@@ -30,7 +30,8 @@ form.addEventListener('submit', function(e) {
   const numero = '+5511973086170';
 
   // Abre o WhatsApp
-  const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
 
   window.open(url, '_blank');
 });
