@@ -26,13 +26,12 @@ body {
   overflow: hidden;
 }
 
-#tela-inicial::before {
-  content: '💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋';
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 150%;
-  height: 200%;
+#beijinhos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   font-size: 28px;
   line-height: 48px;
   letter-spacing: 8px;
@@ -40,7 +39,10 @@ body {
   opacity: 0.08;
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
+  color: #d63f6e;
 }
+
 
 #tela-inicial > * {
   position: relative;
