@@ -32,9 +32,7 @@
           <button class="btn-secundario">Ver Serviços</button>
         </a>
       </div>
-
     </div>
-
     <section id="servicos">
       <h2>Nossos Serviços</h2>
 
@@ -46,6 +44,8 @@
           <span>Aplicação — R$ 145,00</span>
           <span>Manuteção — R$ 110,00</span>
         </div>
+        </div>
+      </div>
           <div class="detalhes" id="tips">
             <img src="img/tips1.jpg" class="img-servico">
             <img src="img/tips2.jpg" class="img-servico">
@@ -60,6 +60,7 @@
             <span>R$ 100,00</span>
             <span>🚨 Não realizo manutenção deste serviço</span>
           </div>
+        </div>
           <div class="detalhes" id="gel">
             <img src="img/gel.jpg" class="img-servico">
           </div>
@@ -93,6 +94,13 @@
       <p>By Luu Alves</p>
       <p>📱 11 999-9999</p>
     </footer>
+           
+           <script>
+function toggleServico(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle("ativo");
+}
+</script>
 
   </body>
 </html>
