@@ -19,9 +19,8 @@ form.addEventListener('submit', async function(e) {
   const nome = document.getElementById('nome').value;
   const telefone = document.getElementById('telefone').value;
   const servico = document.getElementById('servico').value;
-  const dataInput = document.getElementById('data').value;
+  const data = document.getElementById('data').value;
   const horario = document.getElementById('horario').value;
-
   if (!nome || !telefone || !servico || !dataInput || !horario) {
     alert('Por favor, preencha todos os campos!');
     return;
