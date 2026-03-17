@@ -22,6 +22,6 @@ form.addEventListener('submit', function(e) {
 📱 Telefone: ${telefone}`;
 
   const numero = '5511973086170';
-  const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
   window.open(url, '_blank');
 });
