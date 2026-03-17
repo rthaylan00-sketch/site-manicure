@@ -263,3 +263,18 @@ footer p {
   color: #aaa;
   letter-spacing: 1px;
 }
+
+/* ===== PREÇOS ===== */
+
+.preco {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+.preco span {
+  font-size: 14px;
+  font-weigth: 700;
+  color: #d63f6e;
+}
+  
