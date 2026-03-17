@@ -236,20 +236,3 @@ header {
   font-size: 14px;
   letter-spacing: 1px;
 }
-/* ===== HEADER AGENDAMENTO ===== */
-
-header #logo-area h1 {
-  font-size: 36px;
-}
-
-header #logo-area h2 {
-  font-size: 36px;
-  margin-bottom: 4px;
-}
-
-header #logo-area p {
-  font-size: 11px;
-  margin-bottom: 0;
-}
-
-
