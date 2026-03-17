@@ -280,7 +280,7 @@ footer p {
 
 /* ===== LISTAS DE PREÇOS ===== */
 .preco-lista {
-  display: Flex;
+  display: flex;
   flex-direction: column;
   gap: 6px;
   margin-top: 12px;
