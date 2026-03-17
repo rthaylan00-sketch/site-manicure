@@ -41,13 +41,19 @@
         </select>
        </div>
       <div class="campo">
-  <label>Data</label>
-  <input type="text" id="data" placeholder="Ex: 18/03/2026" />
-</div>
-
-<div class="campo">
   <label>Horário</label>
-  <input type="text" id="horario" placeholder="Ex: 14:00" />
+  <select id="horario">
+    <option value="">Selecione...</option>
+    <option value="09:00">09:00</option>
+    <option value="13:00">13:00</option>
+    <option value="16:30">16:30</option>
+    <option value="19:00">19:00</option>
+    <option value="21:30">21:30</option>
+  </select>
+</div>
+<div class="campo">
+  <label>Data</label>
+  <input type="date" id="data" />
 </div>
 
 
