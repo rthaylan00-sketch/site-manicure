@@ -21,22 +21,16 @@ form.addEventListener('submit', async function(e) {
   const servico = document.getElementById('servico').value;
   const data = document.getElementById('data').value;
   const horario = document.getElementById('horario').value;
-  if (!nome || !telefone || !servico || !dataInput || !horario) {
+
+  if (!nome || !telefone || !servico || !data || !horario) {
     alert('Por favor, preencha todos os campos!');
     return;
   }
 
-  // Formata a data para yyyy-mm-dd independente do iPhone ou Android
-  const partes = dataInput.split('-');
-  const data = partes.length === 3 ? dataInput : new Date(dataInput).toISOString().split('T')[0];
-
-  // Formata horário para HH:MM
-  const horarioFormatado = horario.substring(0, 5);
-
   try {
     const snapshot = await db.collection('agendamentos')
       .where('data', '==', data)
-      .where('horario', '==', horarioFormatado)
+      .where('horario', '==', horario)
       .get();
 
     if (!snapshot.empty) {
@@ -49,14 +43,14 @@ form.addEventListener('submit', async function(e) {
       telefone,
       servico,
       data,
-      horario: horarioFormatado,
+      horario,
       criadoEm: new Date()
     });
 
     const mensagem = `Olá Luiza! Gostaria de agendar:
 💅 Serviço: ${servico}
 📅 Data: ${data}
-⏰ Horário: ${horarioFormatado}
+⏰ Horário: ${horario}
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}`;
 
