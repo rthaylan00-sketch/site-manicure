@@ -1,5 +1,22 @@
 const form = document.getElementById('form-agendamento');
 
+// Bloqueia domingos no calendário
+const campoData = document.getElementById('data');
+
+campoData.addEventListener('change', function() {
+  const dataSelecionada = new Date(this.value + 'T00:00:00');
+  const diaSemana = dataSelecionada.getDay();
+
+  if (diaSemana === 0) {
+    alert('Domingos não há atendimento! Por favor escolha outro dia.');
+    this.value = '';
+  }
+});
+
+// Define data mínima como hoje
+const hoje = new Date().toISOString().split('T')[0];
+campoData.setAttribute('min', hoje);
+
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
