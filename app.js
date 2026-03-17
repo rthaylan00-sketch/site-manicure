@@ -1,19 +1,6 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyCeQD2PNlXf2j8lTbit6ktOZR2FtAufLbY",
-  authDomain: "agendapro-788d0.firebaseapp.com",
-  projectId: "agendapro-788d0",
-  storageBucket: "agendapro-788d0.firebasestorage.app",
-  messagingSenderId: "627296929583",
-  appId: "1:627296929583:web:d1773f21704407b41a43da",
-  measurementId: "G-66SHNPQPMR"
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
 const form = document.getElementById('form-agendamento');
 
-form.addEventListener('submit', async function(e) {
+form.addEventListener('submit', function(e) {
   e.preventDefault();
 
   const nome = document.getElementById('nome').value;
@@ -27,38 +14,14 @@ form.addEventListener('submit', async function(e) {
     return;
   }
 
-  try {
-    const snapshot = await db.collection('agendamentos')
-      .where('data', '==', data)
-      .where('horario', '==', horario)
-      .get();
-
-    if (!snapshot.empty) {
-      alert('Este horário já está ocupado! Por favor escolha outro.');
-      return;
-    }
-
-    await db.collection('agendamentos').add({
-      nome,
-      telefone,
-      servico,
-      data,
-      horario,
-      criadoEm: new Date()
-    });
-
-    const mensagem = `Olá Luiza! Gostaria de agendar:
+  const mensagem = `Olá Luiza! Gostaria de agendar:
 💅 Serviço: ${servico}
 📅 Data: ${data}
 ⏰ Horário: ${horario}
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}`;
 
-    const numero = '5511973086170';
-    const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
-
-  } catch(erro) {
-    alert('Erro: ' + erro.message);
-  }
+  const numero = '5511973086170';
+  const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+  window.open(url, '_blank');
 });
