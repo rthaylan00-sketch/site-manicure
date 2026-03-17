@@ -8,7 +8,9 @@ const firebaseConfig = {
   appId: "1:627296929583:web:d1773f21704407b41a43da"
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 const db = firebase.firestore();
 
 // ===== BLOQUEIA DOMINGOS E DATAS PASSADAS =====
@@ -43,28 +45,27 @@ form.addEventListener('submit', async function(e) {
   }
 
   try {
-    // Verifica se horário já está ocupado
     const snapshot = await db.collection('agendamentos')
       .where('data', '==', data)
       .where('horario', '==', horario)
       .get();
 
     if (!snapshot.empty) {
-      alert('Este horário já está ocupado! Por favor escolha outro horário.');
+      alert('Este horário já está ocupado! Por favor escolha outro.');
       return;
     }
 
-    // Salva o agendamento no Firebase
-    await db.collection('agendamentos').add({
-      nome,
-      telefone,
-      servico,
-      data,
-      horario,
-      criadoEm: new Date()
+    const docRef = await db.collection('agendamentos').add({
+      nome: nome,
+      telefone: telefone,
+      servico: servico,
+      data: data,
+      horario: horario,
+      criadoEm: new Date().toISOString()
     });
 
-    // Abre o WhatsApp
+    console.log('Agendamento salvo:', docRef.id);
+
     const mensagem = `Olá Luiza! Gostaria de agendar:
 💅 Serviço: ${servico}
 📅 Data: ${data}
@@ -77,6 +78,6 @@ form.addEventListener('submit', async function(e) {
     window.open(url, '_blank');
 
   } catch(erro) {
-    alert('Erro: ' + erro.message);
+    alert('Erro ao salvar: ' + erro.message);
   }
 });
