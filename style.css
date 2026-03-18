@@ -349,14 +349,50 @@ footer p {
   transform: scale(0.98);
 }
 
-
-/* ===== LOGO ===== */
-#logo {
-  width: 220px;
-  height: 220px;
-  object-fit: contain;
-  margin-bottom: 40px;
+/* ===== CATÁLOGO ===== */
+#catalogo {
+  padding: 60px 0;
+  background-color: white;
+  text-align: center;
 }
+
+#catalogo h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #2a2a2a;
+  margin-bottom: 8px;
+  padding: 0 24px;
+}
+
+#catalogo p {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 24px;
+}
+
+#carrossel {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 0 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+#carrossel::-webkit-scrollbar {
+  display: none;
+}
+
+#carrossel img {
+  width: 260px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
 
   
   
