@@ -59,9 +59,10 @@ async function bloquearHorarios(dataSelecionada) {
 
     if (horariosOcupados.includes(option.value)) {
       option.disabled = true;
-      option.textContent = option.value + " (ocupado)";
+      option.style.display = 'none';
     } else {
       option.disabled = false;
+      option.style.display = '';
       option.textContent = option.value;
     }
 
