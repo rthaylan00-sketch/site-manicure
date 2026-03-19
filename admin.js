@@ -45,3 +45,9 @@ window.cancelar = async (id) => {
 };
 
 carregarAgendamentos();
+
+const senha = prompt("Digite a senha:");
+
+if (senha !== "salao123") {
+  window.location.href = "agendamento.html";
+}
