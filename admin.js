@@ -22,13 +22,15 @@ async function carregarAgendamentos() {
     div.style.margin = "10px";
     div.style.padding = "10px";
 
-    div.innerHTML = `
-      <p><strong>Nome:</strong> ${data.nome}</p>
-      <p><strong>Serviço:</strong> ${data.servico}</p>
-      <p><strong>Data:</strong> ${data.data}</p>
-      <p><strong>Hora:</strong> ${data.horario || "-"}</p>
-      <button onclick="cancelar('${docSnap.id}')">Cancelar</button>
-    `;
+    div.classList.add("card");
+
+div.innerHTML = `
+  <p><strong>Nome:</strong> ${data.nome || "-"}</p>
+  <p><strong>Serviço:</strong> ${data.servico || "-"}</p>
+  <p><strong>Data:</strong> ${data.data || "-"}</p>
+  <p><strong>Hora:</strong> ${data.horario || "-"}</p>
+  <button class="btn" onclick="cancelar('${docSnap.id}')">Cancelar</button>
+`;
 
     lista.appendChild(div);
   });
