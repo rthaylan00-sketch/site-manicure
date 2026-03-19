@@ -88,8 +88,13 @@ async function bloquearHorarios(dataSelecionada) {
 const form = document.getElementById('form-agendamento');
 
 function formatarDataBR(data) {
-  const [ano, mes, dia] = data.split("-");
-  return `${dia}/${mes}/${ano}`;
+  const novaData = new Date(data);
+  return novaData.toLocaleDateString("pt-BR", {
+    weekday: "long",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
 }
 
 form.addEventListener('submit', async function(e) {
