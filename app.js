@@ -53,21 +53,36 @@ async function bloquearHorarios(dataSelecionada) {
 
   const horariosOcupados = snapshot.docs.map(doc => doc.data().horario);
 
-  Array.from(selectHorario.options).forEach(option => {
+  const todosHorarios = [
+    '09:00',
+    '13:00',
+    '16:30',
+    '19:00',
+    '21:30'
+  ];
 
-    if (!option.value) return;
+  // Limpa a lista
+  selectHorario.innerHTML = '<option value="">Selecione...</option>';
 
-    if (horariosOcupados.includes(option.value)) {
-      option.disabled = true;
-      option.style.display = 'none';
-    } else {
-      option.disabled = false;
-      option.style.display = '';
-      option.textContent = option.value;
+  // Adiciona só os disponíveis
+  todosHorarios.forEach(horario => {
+    if (!horariosOcupados.includes(horario)) {
+      const option = document.createElement('option');
+      option.value = horario;
+      option.textContent = horario;
+      selectHorario.appendChild(option);
     }
-
   });
+
+  if (selectHorario.options.length === 1) {
+    const option = document.createElement('option');
+    option.value = '';
+    option.textContent = 'Nenhum horário disponível';
+    option.disabled = true;
+    selectHorario.appendChild(option);
+  }
 }
+
 
 // ===== FORMULÁRIO =====
 const form = document.getElementById('form-agendamento');
