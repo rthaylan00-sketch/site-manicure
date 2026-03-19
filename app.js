@@ -143,7 +143,7 @@ form.addEventListener('submit', async function(e) {
 Gostaria de agendar um horário:
 
 💅 Serviço: ${servico}
-📅 Data: ${formatarDataBr(data)}
+📅 Data: ${formatarDataBR(data)}
 ⏰ Horário: ${horario}
 
 👤 Nome: ${nome}
