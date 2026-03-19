@@ -7,6 +7,16 @@ import {
   doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+function formatarDataBR(data) {
+  const novaData = new Date(data);
+  return novaData.toLocaleDateString("pt-BR", {
+    weekday: "long",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
+}
+
 const lista = document.getElementById("lista");
 
 async function carregarAgendamentos() {
@@ -27,7 +37,7 @@ async function carregarAgendamentos() {
 div.innerHTML = `
   <p><strong>Nome:</strong> ${data.nome || "-"}</p>
   <p><strong>Serviço:</strong> ${data.servico || "-"}</p>
-  <p><strong>Data:</strong> ${data.data || "-"}</p>
+  <p><strong>Data:</strong> ${data.data ? formatarDataBr(data.data) : "-"}</p>
   <p><strong>Hora:</strong> ${data.horario || "-"}</p>
   <button class="btn" onclick="cancelar('${docSnap.id}')">Cancelar</button>
 `;
