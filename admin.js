@@ -48,6 +48,6 @@ carregarAgendamentos();
 
 const senha = prompt("Digite a senha:");
 
-if (senha !== "salao123") {
+if (senha !== "Lu1234")
   window.location.href = "agendamento.html";
 }
