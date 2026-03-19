@@ -26,7 +26,7 @@ async function carregarAgendamentos() {
       <p><strong>Nome:</strong> ${data.nome}</p>
       <p><strong>Serviço:</strong> ${data.servico}</p>
       <p><strong>Data:</strong> ${data.data}</p>
-      <p><strong>Hora:</strong> ${data.hora}</p>
+      <p><strong>Hora:</strong> ${data.horario || "-"}</p>
       <button onclick="cancelar('${docSnap.id}')">Cancelar</button>
     `;
 
