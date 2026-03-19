@@ -37,7 +37,7 @@ async function carregarAgendamentos() {
 div.innerHTML = `
   <p><strong>Nome:</strong> ${data.nome || "-"}</p>
   <p><strong>Serviço:</strong> ${data.servico || "-"}</p>
-  <p><strong>Data:</strong> ${data.data ? formatarDataBr(data.data) : "-"}</p>
+  <p><strong>Data:</strong> ${data.data ? formatarDataBR(data.data) : "-"}</p>
   <p><strong>Hora:</strong> ${data.horario || "-"}</p>
   <button class="btn" onclick="cancelar('${docSnap.id}')">Cancelar</button>
 `;
