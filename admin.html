@@ -1,14 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Painel Admin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Admin</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.info {
+  margin: 5px 0;
+}
+
+.nome {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.servico {
+  color: #666;
+}
+
+.data {
+  font-size: 14px;
+}
+
+.hora {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c7be5;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-wpp {
+  background: #25D366;
+  color: white;
+}
+</style>
+
 </head>
 <body>
 
-<h1>Painel de Agendamentos</h1>
+<header>
+  <h1>📅 Agendamentos</h1>
+</header>
 
-<div id="lista"></div>
+<div class="container">
+  <div id="lista"></div>
+</div>
 
 <script type="module" src="admin.js"></script>
 
