@@ -87,6 +87,11 @@ async function bloquearHorarios(dataSelecionada) {
 // ===== FORMULÁRIO =====
 const form = document.getElementById('form-agendamento');
 
+function formatarDataBR(data) {
+  const [ano, mes, dia] = data.split("-");
+  return `${dia}/${mes}/${ano}`;
+}
+
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
 
@@ -133,7 +138,7 @@ form.addEventListener('submit', async function(e) {
 Gostaria de agendar um horário:
 
 💅 Serviço: ${servico}
-📅 Data: ${data}
+📅 Data: ${formatarDataBr(data)}
 ⏰ Horário: ${horario}
 
 👤 Nome: ${nome}
