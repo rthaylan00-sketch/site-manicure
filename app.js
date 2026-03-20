@@ -155,6 +155,7 @@ Gostaria de agendar um horário:
 ⏰ Horário: ${horario}
 📍Local: Rua Pedro Escobar 06 
 Ponto de referência: Em cima da Farmácia Vital Farma
+🗺️ Mapa: https://maps.google.com/?q=Rua+Pedro+Escobar+06
 
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}
