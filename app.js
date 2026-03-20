@@ -153,6 +153,7 @@ Gostaria de agendar um horário:
 💅 Serviço: ${servico}
 📅 Data: ${formatarDataBR(data)}
 ⏰ Horário: ${horario}
+📍Local: 
 
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}
