@@ -30,13 +30,14 @@ const hojeFormatado = hoje.getFullYear() + '-' +
   String(hoje.getDate()).padStart(2, '0');
 
 campoData.setAttribute('min', hojeFormatado);
-campoData.setAttribute('min', hoje);
+
 
 // ===== BLOQUEAR DOMINGO + CARREGAR HORÁRIOS =====
 campoData.addEventListener('change', async function() {
 
   const dataSelecionada = this.value;
 
+  const partes = dataSelecionada.split('-');
   const dataObj = new Date(dataSelecionada + 'T00:00:00');
   const diaSemana = dataObj.getDay();
 
