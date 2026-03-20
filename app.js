@@ -24,7 +24,12 @@ const campoData = document.getElementById('data');
 const selectHorario = document.getElementById('horario');
 
 // ===== BLOQUEAR DATAS PASSADAS =====
-const hoje = new Date().toISOString().split('T')[0];
+const hoje = new Date();
+const hojeFormatado = hoje.getFullYear() + '-' +
+  String(hoje.getMonth() + 1).padStart(2, '0') + '-' +
+  String(hoje.getDate()).padStart(2, '0');
+
+campoData.setAttribute('min', hojeFormatado);
 campoData.setAttribute('min', hoje);
 
 // ===== BLOQUEAR DOMINGO + CARREGAR HORÁRIOS =====
