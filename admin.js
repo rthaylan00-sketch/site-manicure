@@ -8,7 +8,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 function formatarDataBR(data) {
-  const novaData = new Date(data);
+  const partes = data.split('-');
+  const novaData = new Date(partes[0], partes[1] - 1, partes[2]);
+
   return novaData.toLocaleDateString("pt-BR", {
     weekday: "long",
     day: "2-digit",
@@ -16,6 +18,7 @@ function formatarDataBR(data) {
     year: "numeric"
   });
 }
+
 
 const lista = document.getElementById("lista");
 
