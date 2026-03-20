@@ -94,7 +94,9 @@ async function bloquearHorarios(dataSelecionada) {
 const form = document.getElementById('form-agendamento');
 
 function formatarDataBR(data) {
-  const novaData = new Date(data);
+  const partes = data.split('-');
+  const novaData = new Date(partes[0], partes[1] - 1, partes[2]);
+
   return novaData.toLocaleDateString("pt-BR", {
     weekday: "long",
     day: "2-digit",
