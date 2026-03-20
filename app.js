@@ -38,7 +38,7 @@ campoData.addEventListener('change', async function() {
   const dataSelecionada = this.value;
 
   const partes = dataSelecionada.split('-');
-  const dataObj = new Date(dataSelecionada + 'T00:00:00');
+const dataObj = new Date(partes[0], partes[1] - 1, partes[2]);
   const diaSemana = dataObj.getDay();
 
   if (diaSemana === 0) {
