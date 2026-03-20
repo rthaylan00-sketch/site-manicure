@@ -393,6 +393,16 @@ footer p {
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
+.footer {
+
+  display: flex;
+  flex-direction: colunm;
+  background-color: #d63f6e;
+}
+  
+
+  
+
 
   
   
