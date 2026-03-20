@@ -153,7 +153,8 @@ Gostaria de agendar um horário:
 💅 Serviço: ${servico}
 📅 Data: ${formatarDataBR(data)}
 ⏰ Horário: ${horario}
-📍Local: 
+📍Local: Rua Pedro Escobar 06 
+Ponto de referência: Em cima da Farmácia Vital Farma
 
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}
