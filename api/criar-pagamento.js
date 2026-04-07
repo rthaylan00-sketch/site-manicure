@@ -22,9 +22,9 @@ export default async function handler(req, res) {
         }
       ],
       back_urls: {
-        success: "https://SEU-SITE.vercel.app/sucesso.html",
-        failure: "https://SEU-SITE.vercel.app/erro.html",
-        pending: "https://SEU-SITE.vercel.app/pendente.html"
+        success: "https://site-manicure-dusky.vercel.app/sucesso.html",
+        failure: "https://site-manicure-dusky.vercel.app/erro.html",
+        pending: "https://site-manicure-dusky.vercel.app/pendente.html"
       },
       auto_return: "approved"
     });
