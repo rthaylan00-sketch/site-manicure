@@ -177,3 +177,19 @@ Aguardo confirmação 💖`;
     alert('Erro: ' + erro.message);
   }
 });
+  async function irParaPagamento() {
+  try {
+    const res = await fetch("/api/criar-pagamento", {
+      method: "POST"
+    });
+
+    const data = await res.json();
+
+    window.location.href = data.link;
+
+  } catch (error) {
+    alert("Erro ao iniciar pagamento");
+    console.log(error);
+  }
+}
+
