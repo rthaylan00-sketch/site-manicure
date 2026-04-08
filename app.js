@@ -133,17 +133,20 @@ form.addEventListener('submit', async function(e) {
       alert('Este horário já está ocupado!');
       return;
     }
+// 🔥 SALVA TEMPORÁRIO (opcional depois melhorar)
+localStorage.setItem("agendamento", JSON.stringify({
+  nome,
+  telefone,
+  servico,
+  data,
+  horario
+}));
 
-    await db.collection('agendamentos').add({
-      nome,
-      telefone,
-      servico,
-      data,
-      horario,
-      criadoEm: new Date().toISOString()
-    });
+// 👉 vai pro pagamento
+await irParaPagamento();
+    
 
-    alert('Agendamento confirmado!');
+    
 
     // ===== WHATSAPP =====
     const mensagem = `Olá! Tudo bem? 😊
