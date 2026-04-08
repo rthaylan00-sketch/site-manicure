@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento confirmado</title>
+</head>
+<body>
 
+<h1>Pagamento confirmado ✅</h1>
+<p>Seu horário está sendo reservado...</p>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+<script>
+
+// 🔥 CONFIG FIREBASE (igual ao seu app.js)
+const firebaseConfig = {
+  apiKey: "SUA_API_KEY",
+  authDomain: "SEU_AUTH_DOMAIN",
+  projectId: "SEU_PROJECT_ID",
+  storageBucket: "SEU_BUCKET",
+  messagingSenderId: "SEU_ID",
+  appId: "SEU_APP_ID"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+const db = firebase.firestore();
+
+// 🔥 PEGA DADOS SALVOS
+const dados = JSON.parse(localStorage.getItem("agendamento"));
+
+if (!dados) {
+  alert("Erro: nenhum agendamento encontrado");
+}
+
+// 🔥 SALVA NO FIREBASE
+async function salvar() {
+  try {
+
+    await db.collection('agendamentos').add({
+      ...dados,
+      criadoEm: new Date().toISOString()
+    });
+
+    // 🔥 MENSAGEM WHATSAPP
+    const mensagem = `Olá! Tudo bem? 😊
+
+Gostaria de confirmar meu horário:
+
+💅 Serviço: ${dados.servico}
+📅 Data: ${formatarDataBR(dados.data)}
+⏰ Horário: ${dados.horario}
+📍Local: Rua Pedro Escobar 06
+
+👤 Nome: ${dados.nome}
+📱 Telefone: ${dados.telefone}
+
+Já realizei o pagamento do sinal 💖`;
+
+    const numero = "5511973086170";
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+    // limpa localStorage
+    localStorage.removeItem("agendamento");
+
+    // redireciona pro WhatsApp
+    window.location.href = url;
+
+  } catch (erro) {
+    alert("Erro ao salvar agendamento");
+    console.log(erro);
+  }
+}
+
+// 🔥 FORMATAR DATA
+function formatarDataBR(data) {
+  const partes = data.split('-');
+  const novaData = new Date(partes[0], partes[1] - 1, partes[2]);
+
+  return novaData.toLocaleDateString("pt-BR", {
+    weekday: "long",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
+}
+
+// roda automaticamente
+salvar();
+
+</script>
+
+</body>
+</html>
