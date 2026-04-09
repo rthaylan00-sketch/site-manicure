@@ -1,3 +1,14 @@
+function verificarSenha() {
+  const senha = document.getElementById('campo-senha').value;
+  if (senha === "Lu1234") {
+    document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('painel').style.display = 'block';
+    carregarAgendamentos();
+  } else {
+    alert('Senha incorreta!');
+  }
+}
+
 function formatarDataBR(data) {
   const partes = data.split('-');
   const novaData = new Date(partes[0], partes[1] - 1, partes[2]);
@@ -9,11 +20,6 @@ function formatarDataBR(data) {
   });
 }
 
-const senha = prompt("Digite a senha:");
-if (senha !== "Lu1234") {
-  window.location.href = "agendamento.html";
-}
-
 const lista = document.getElementById("lista");
 
 async function carregarAgendamentos() {
@@ -23,7 +29,6 @@ async function carregarAgendamentos() {
 
   querySnapshot.forEach((docSnap) => {
     const data = docSnap.data();
-
     const div = document.createElement("div");
     div.classList.add("card");
 
@@ -45,5 +50,3 @@ window.cancelar = async (id) => {
     carregarAgendamentos();
   }
 };
-
-carregarAgendamentos();
