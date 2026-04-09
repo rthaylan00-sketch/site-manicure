@@ -143,7 +143,7 @@ localStorage.setItem("agendamento", JSON.stringify({
 }));
 
 // 👉 vai pro pagamento
-await irParaPagamento();
+/* await irParaPagamento(); */
     
 
     
@@ -177,7 +177,7 @@ Aguardo confirmação 💖`;
     alert('Erro: ' + erro.message);
   }
 });
-  async function irParaPagamento() {
+ /* async function irParaPagamento() {
   try {
     const res = await fetch("/api/criar-pagamento", {
       method: "POST"
@@ -191,5 +191,5 @@ Aguardo confirmação 💖`;
     alert("Erro ao iniciar pagamento");
     console.log(error);
   }
-}
+} */
 
