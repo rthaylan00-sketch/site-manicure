@@ -60,7 +60,7 @@ async function bloquearHorarios(dataSelecionada) {
   const horariosOcupados = snapshot.docs.map(doc => doc.data().horario);
 
   const todosHorarios = [
-    '09:00',
+    
     '13:00',
     '16:30',
     '19:00',
@@ -133,7 +133,7 @@ form.addEventListener('submit', async function(e) {
       alert('Este horário já está ocupado!');
       return;
     }
-// 🔥 SALVA TEMPORÁRIO (opcional depois melhorar)
+/* 🔥 SALVA TEMPORÁRIO (opcional depois melhorar)
 localStorage.setItem("agendamento", JSON.stringify({
   nome,
   telefone,
@@ -141,7 +141,7 @@ localStorage.setItem("agendamento", JSON.stringify({
   data,
   horario
 }));
-
+/*
 // 👉 vai pro pagamento
 /* await irParaPagamento(); */
     
