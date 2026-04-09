@@ -1,16 +1,6 @@
-import { db } from "./firebase.js";
-
-import {
-  collection,
-  getDocs,
-  deleteDoc,
-  doc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 function formatarDataBR(data) {
   const partes = data.split('-');
   const novaData = new Date(partes[0], partes[1] - 1, partes[2]);
-
   return novaData.toLocaleDateString("pt-BR", {
     weekday: "long",
     day: "2-digit",
@@ -19,48 +9,41 @@ function formatarDataBR(data) {
   });
 }
 
+const senha = prompt("Digite a senha:");
+if (senha !== "Lu1234") {
+  window.location.href = "agendamento.html";
+}
 
 const lista = document.getElementById("lista");
 
 async function carregarAgendamentos() {
   lista.innerHTML = "";
 
-  const querySnapshot = await getDocs(collection(db, "agendamentos"));
+  const querySnapshot = await db.collection("agendamentos").get();
 
   querySnapshot.forEach((docSnap) => {
     const data = docSnap.data();
 
     const div = document.createElement("div");
-    div.style.border = "1px solid #ccc";
-    div.style.margin = "10px";
-    div.style.padding = "10px";
-
     div.classList.add("card");
 
-div.innerHTML = `
-  <p><strong>Nome:</strong> ${data.nome || "-"}</p>
-  <p><strong>Serviço:</strong> ${data.servico || "-"}</p>
-  <p><strong>Data:</strong> ${data.data ? formatarDataBR(data.data) : "-"}</p>
-  <p><strong>Hora:</strong> ${data.horario || "-"}</p>
-  <button class="btn" onclick="cancelar('${docSnap.id}')">Cancelar</button>
-`;
+    div.innerHTML = `
+      <p><strong>Nome:</strong> ${data.nome || "-"}</p>
+      <p><strong>Serviço:</strong> ${data.servico || "-"}</p>
+      <p><strong>Data:</strong> ${data.data ? formatarDataBR(data.data) : "-"}</p>
+      <p><strong>Hora:</strong> ${data.horario || "-"}</p>
+      <button class="btn" onclick="cancelar('${docSnap.id}')">Cancelar</button>
+    `;
 
     lista.appendChild(div);
   });
 }
 
-// função global (precisa estar no window)
 window.cancelar = async (id) => {
   if (confirm("Deseja cancelar esse agendamento?")) {
-    await deleteDoc(doc(db, "agendamentos", id));
-    carregarAgendamentos(); // recarrega lista
+    await db.collection("agendamentos").doc(id).delete();
+    carregarAgendamentos();
   }
 };
 
 carregarAgendamentos();
-
-const senha = prompt("Digite a senha:");
-
-if (senha !== "Lu1234") {
-  window.location.href = "agendamento.html";
-}
