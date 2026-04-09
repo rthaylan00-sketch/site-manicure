@@ -1,9 +1,3 @@
-
-// Importações
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-// Sua config (já está certa)
 const firebaseConfig = {
   apiKey: "AIzaSyCeQD2PNlXf2j8lTbit6ktOZR2FtAufLbY",
   authDomain: "agendapro-788d0.firebaseapp.com",
@@ -14,10 +8,7 @@ const firebaseConfig = {
 };
 
 // Inicializa Firebase
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-// Inicializa Firestore
-const db = getFirestore(app);
-
-// Exporta o banco
-export { db }
+// Banco
+const db = firebase.firestore();
