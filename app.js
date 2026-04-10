@@ -88,78 +88,22 @@ year: “numeric”
 }
 
 // ===== FORMULÁRIO =====
-const form = document.getElementById(‘form-agendamento’);
+function confirmarAgendamento() {
+  const nome = document.getElementById('nome').value;
+  const telefone = document.getElementById('telefone').value;
+  const servico = document.getElementById('servico').value;
+  const data = document.getElementById('data').value;
+  const horario = document.getElementById('horario').value;
 
-form.addEventListener(‘submit’, async function (e) {
-e.preventDefault();
+  if (!nome || !telefone || !servico || !data || !horario) {
+    alert('Preencha todos os campos!');
+    return;
+  }
 
-const nome = document.getElementById(‘nome’).value;
-const telefone = document.getElementById(‘telefone’).value;
-const servico = document.getElementById(‘servico’).value;
-const data = document.getElementById(‘data’).value;
-const horario = document.getElementById(‘horario’).value;
+  const mensagem = `Olá! Tudo bem? 😊\n\nGostaria de agendar um horário:\n\n💅 Serviço: ${servico}\n📅 Data: ${formatarDataBR(data)}\n⏰ Horário: ${horario}\n📍Local: Rua Pedro Escobar 06\n👤 Nome: ${nome}\n📱 Telefone: ${telefone}\n\nAguardo confirmação 💖`;
 
-if (!nome || !telefone || !servico || !data || !horario) {
-alert(‘Preencha todos os campos!’);
-return;
+  const url = `https://wa.me/5511973086170?text=${encodeURIComponent(mensagem)}`;
+
+  window.location.href = url;
 }
 
-// ===== MONTA MENSAGEM E URL =====
-const mensagem = `Olá! Tudo bem? 😊
-
-Gostaria de agendar um horário:
-
-💅 Serviço: ${servico}
-📅 Data: ${formatarDataBR(data)}
-⏰ Horário: ${horario}
-📍Local: Rua Pedro Escobar 06
-Ponto de referência: Em cima da Farmácia Vital Farma
-🗺️ Mapa: https://maps.google.com/?q=Rua+Pedro+Escobar+06
-
-👤 Nome: ${nome}
-📱 Telefone: ${telefone}
-
-Aguardo confirmação 💖`;
-
-const numero = ‘5511973086170’;
-const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-
-// ===== ABRE O WHATSAPP (funciona no Safari e Android) =====
-const link = document.createElement(‘a’);
-link.href = url;
-link.target = ‘_blank’;
-link.rel = ‘noopener noreferrer’;
-document.body.appendChild(link);
-link.click();
-document.body.removeChild(link);
-
-try {
-// Verifica se o horário ainda está disponível
-const snapshot = await db.collection(‘agendamentos’)
-.where(‘data’, ‘==’, data)
-.get();
-
-const ocupado = snapshot.docs.some(doc => doc.data().horario === horario);
-
-if (ocupado) {
-  alert('Este horário já está ocupado! Escolha outro.');
-  return;
-}
-
-// Salva no Firestore
-await db.collection('agendamentos').add({
-  nome,
-  telefone,
-  servico,
-  data,
-  horario,
-  criadoEm: firebase.firestore.FieldValue.serverTimestamp()
-});
-
-form.reset();
-
-
-} catch (erro) {
-alert(’Erro: ’ + erro.message);
-}
-});
