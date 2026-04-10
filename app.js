@@ -126,7 +126,15 @@ const numero = ‘5511973086170’;
 const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
 // ===== ABRE O WHATSAPP ANTES DOS AWAITS (obrigatório no Safari/iOS) =====
-const janela = window.open(url, ‘_blank’);
+const link = document.createElement('a');
+link.href = url;
+link.target = '_blank';
+link.rel = 'noopener noreferrer';
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+const janela = { close: () => {} }; // mantém o janela.close() funcionando
+
 
 try {
 // Verifica se o horário ainda está disponível
