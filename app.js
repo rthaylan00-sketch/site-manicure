@@ -105,5 +105,7 @@ function confirmarAgendamento() {
   const url = `https://wa.me/5511973086170?text=${encodeURIComponent(mensagem)}`;
 
   window.location.href = url;
+  window.confirmarAgendamento = confirmarAgendamento;
+
 }
 
