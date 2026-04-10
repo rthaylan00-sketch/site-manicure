@@ -139,7 +139,6 @@ const snapshot = await db.collection(‘agendamentos’)
 .where(‘data’, ‘==’, data)
 .get();
 
-```
 const ocupado = snapshot.docs.some(doc => doc.data().horario === horario);
 
 if (ocupado) {
@@ -158,7 +157,7 @@ await db.collection('agendamentos').add({
 });
 
 form.reset();
-```
+
 
 } catch (erro) {
 alert(’Erro: ’ + erro.message);
