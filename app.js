@@ -1,27 +1,22 @@
-// ===== FIREBASE CONFIG =====
 const firebaseConfig = {
   apiKey: "AIzaSyCeQD2PNlXf2j8lTbit6ktOZR2FtAufLbY",
   authDomain: "agendapro-788d0.firebaseapp.com",
   projectId: "agendapro-788d0",
   storageBucket: "agendapro-788d0.firebasestorage.app",
   messagingSenderId: "627296929583",
-  appId: "1:627696929583:web:d1773f21704407b41a43da"
+  appId: "1:627296929583:web:d1773f21704407b41a43da"
 };
 
-// ===== TUDO DENTRO DO DOMCONTENTLOADED =====
 window.addEventListener('DOMContentLoaded', function () {
 
-  // ===== INICIAR FIREBASE =====
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
   const db = firebase.firestore();
 
-  // ===== ELEMENTOS =====
   const campoData = document.getElementById('data');
   const selectHorario = document.getElementById('horario');
 
-  // ===== BLOQUEAR DATAS PASSADAS =====
   if (campoData) {
     const hoje = new Date();
     const hojeFormatado = hoje.getFullYear() + '-' +
@@ -46,7 +41,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ===== BLOQUEAR HORÁRIOS =====
   async function bloquearHorarios(dataSelecionada) {
     const snapshot = await db.collection('agendamentos')
       .where('data', '==', dataSelecionada)
@@ -74,7 +68,6 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // ===== FORMATAR DATA =====
   function formatarDataBR(data) {
     const partes = data.split('-');
     const novaData = new Date(partes[0], partes[1] - 1, partes[2]);
@@ -86,7 +79,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ===== AGENDAR =====
   async function confirmarAgendamento() {
     const nome = document.getElementById('nome').value;
     const telefone = document.getElementById('telefone').value;
@@ -120,7 +112,6 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // ===== BOTÃO =====
   const btnAgendar = document.getElementById('btnAgendar');
   if (btnAgendar) {
     btnAgendar.addEventListener('click', confirmarAgendamento);
