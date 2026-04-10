@@ -53,7 +53,6 @@ const snapshot = await db.collection(‘agendamentos’)
 .get();
 
 const horariosOcupados = snapshot.docs.map(doc => doc.data().horario);
-
 const todosHorarios = [‘13:00’, ‘16:30’, ‘19:00’, ‘21:30’];
 
 selectHorario.innerHTML = ‘<option value="">Selecione…</option>’;
@@ -105,7 +104,7 @@ alert(‘Preencha todos os campos!’);
 return;
 }
 
-// ===== MONTA A MENSAGEM E URL ANTES DOS AWAITS =====
+// ===== MONTA MENSAGEM E URL =====
 const mensagem = `Olá! Tudo bem? 😊
 
 Gostaria de agendar um horário:
@@ -125,16 +124,14 @@ Aguardo confirmação 💖`;
 const numero = ‘5511973086170’;
 const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
-// ===== ABRE O WHATSAPP ANTES DOS AWAITS (obrigatório no Safari/iOS) =====
-const link = document.createElement('a');
+// ===== ABRE O WHATSAPP (funciona no Safari e Android) =====
+const link = document.createElement(‘a’);
 link.href = url;
-link.target = '_blank';
-link.rel = 'noopener noreferrer';
+link.target = ‘_blank’;
+link.rel = ‘noopener noreferrer’;
 document.body.appendChild(link);
 link.click();
 document.body.removeChild(link);
-const janela = { close: () => {} }; // mantém o janela.close() funcionando
-
 
 try {
 // Verifica se o horário ainda está disponível
@@ -146,12 +143,11 @@ const snapshot = await db.collection(‘agendamentos’)
 const ocupado = snapshot.docs.some(doc => doc.data().horario === horario);
 
 if (ocupado) {
-  janela.close();
   alert('Este horário já está ocupado! Escolha outro.');
   return;
 }
 
-// Salva o agendamento no Firestore
+// Salva no Firestore
 await db.collection('agendamentos').add({
   nome,
   telefone,
