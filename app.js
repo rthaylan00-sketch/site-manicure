@@ -1,5 +1,5 @@
 // ===== FIREBASE CONFIG =====
-const firebaseConfig = {
+const firebaseConfig = { 
   apiKey: "AIzaSyCeQD2PNlXf2j8lTbit6ktOZR2FtAufLbY",
   authDomain: "agendapro-788d0.firebaseapp.com",
   projectId: "agendapro-788d0",
