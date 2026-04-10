@@ -72,47 +72,28 @@ async function bloquearHorarios(dataSelecionada) {
 }
 
 // ===== FORMATAR DATA =====
-function formatarDataBR(data) {
-  const partes = data.split('-');
-  const novaData = new Date(partes[0], partes[1] - 1, partes[2]);
-  return novaData.toLocaleDateString("pt-BR", {
-    weekday: "long",
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric"
-  });
-}
-
-// ===== AGENDAR =====
 function confirmarAgendamento() {
-  const nome = document.getElementById('nome').value;
-  const telefone = document.getElementById('telefone').value;
-  const servico = document.getElementById('servico').value;
-  const data = document.getElementById('data').value;
-  const horario = document.getElementById('horario').value;
+  const nome = document.getElementById('nome')?.value || '';
+  const telefone = document.getElementById('telefone')?.value || '';
+  const servico = document.getElementById('servico')?.value || '';
+  const data = document.getElementById('data')?.value || '';
+  const horario = document.getElementById('horario')?.value || '';
 
   if (!nome || !telefone || !servico || !data || !horario) {
     alert('Preencha todos os campos!');
     return;
   }
 
-  const mensagem = `Olá! Tudo bem? 😊
-
-Gostaria de agendar um horário:
-
-💅 Serviço: ${servico}
-📅 Data: ${formatarDataBR(data)}
-⏰ Horário: ${horario}
-📍 Local: Rua Pedro Escobar 06
-👤 Nome: ${nome}
-📱 Telefone: ${telefone}
-
-Aguardo confirmação 💖`;
+  const mensagem = `Olá! Quero agendar:
+Nome: ${nome}
+Telefone: ${telefone}
+Serviço: ${servico}
+Data: ${data}
+Horário: ${horario}`;
 
   const url = `https://wa.me/5511973086170?text=${encodeURIComponent(mensagem)}`;
 
   window.open(url, "_blank");
 }
 
-// 🔥 MUITO IMPORTANTE
 window.confirmarAgendamento = confirmarAgendamento;
