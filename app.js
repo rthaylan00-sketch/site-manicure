@@ -84,7 +84,7 @@ function formatarDataBR(data) {
 }
 
 // ===== AGENDAR =====
-function confirmarAgendamento() {
+async function confirmarAgendamento() {
   const nome = document.getElementById('nome').value;
   const telefone = document.getElementById('telefone').value;
   const servico = document.getElementById('servico').value;
@@ -96,6 +96,23 @@ function confirmarAgendamento() {
     return;
   }
 
-  const url = "https://wa.me/5511973086170?text=teste";
-  window.open(url, "_blank");
+  try {
+    await db.collection('agendamentos').add({
+      nome,
+      telefone,
+      servico,
+      data,
+      horario,
+      criadoEm: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    const dataFormatada = formatarDataBR(data);
+    const mensagem = `Olá! Gostaria de confirmar meu agendamento:%0A%0A👤 ${nome}%0A📱 ${telefone}%0A✂️ ${servico}%0A📅 ${dataFormatada}%0A🕐 ${horario}`;
+    const url = `https://wa.me/5511973086170?text=${mensagem}`;
+    window.open(url, "_blank");
+
+  } catch (erro) {
+    console.error('Erro ao agendar:', erro);
+    alert('Erro ao salvar o agendamento. Tente novamente.');
+  }
 }
