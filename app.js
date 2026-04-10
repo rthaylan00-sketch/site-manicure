@@ -84,7 +84,7 @@ function formatarDataBR(data) {
 }
 
 // ===== AGENDAR =====
-function confirmarAgendamento() {
+async function confirmarAgendamento() {
   const nome = document.getElementById('nome').value;
   const telefone = document.getElementById('telefone').value;
   const servico = document.getElementById('servico').value;
@@ -96,23 +96,36 @@ function confirmarAgendamento() {
     return;
   }
 
-  const mensagem = `Olá! Tudo bem? 😊
+  try {
+    // 🔥 SALVAR NO FIREBASE
+    await db.collection("agendamentos").add({
+      nome,
+      telefone,
+      servico,
+      data,
+      horario,
+      criadoEm: new Date()
+    });
+
+    // 🔥 MENSAGEM WHATSAPP
+    const mensagem = `Olá! Tudo bem? 😊
 
 Gostaria de agendar um horário:
 
 💅 Serviço: ${servico}
-📅 Data: ${formatarDataBR(data)}
+📅 Data: ${data}
 ⏰ Horário: ${horario}
-📍 Local: Rua Pedro Escobar 06
 👤 Nome: ${nome}
-📱 Telefone: ${telefone}
+📱 Telefone: ${telefone}`;
 
-Aguardo confirmação 💖`;
+    const url = `https://wa.me/5511973086170?text=${encodeURIComponent(mensagem)}`;
 
-  const url = `https://wa.me/5511973086170?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
 
-  window.open(url, "_blank");
+  } catch (error) {
+    alert("Erro ao salvar agendamento!");
+    console.error(error);
+  }
 }
 
-// 🔥 MUITO IMPORTANTE
 window.confirmarAgendamento = confirmarAgendamento;
