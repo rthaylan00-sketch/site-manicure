@@ -134,6 +134,23 @@ form.addEventListener('submit', async function(e) {
       return;
     }
 
+  // Após verificar que não está ocupado:
+
+await db.collection('agendamentos').add({
+  nome,
+  telefone,
+  servico,
+  data,
+  horario,
+  criadoEm: firebase.firestore.FieldValue.serverTimestamp()
+});
+
+// Abre o WhatsApp numa nova aba (evita bloqueio de redirect)
+window.open(url, '_blank');
+
+form.reset();
+
+
 
 
     // ===== WHATSAPP =====
