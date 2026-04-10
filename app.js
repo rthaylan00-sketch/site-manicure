@@ -84,7 +84,7 @@ function formatarDataBR(data) {
 }
 
 // ===== AGENDAR =====
-async function confirmarAgendamento() {
+function confirmarAgendamento() {
   const nome = document.getElementById('nome').value;
   const telefone = document.getElementById('telefone').value;
   const servico = document.getElementById('servico').value;
@@ -96,36 +96,6 @@ async function confirmarAgendamento() {
     return;
   }
 
-  try {
-    // 🔥 SALVAR NO FIREBASE
-    await db.collection("agendamentos").add({
-      nome,
-      telefone,
-      servico,
-      data,
-      horario,
-      criadoEm: new Date()
-    });
-
-    // 🔥 MENSAGEM WHATSAPP
-    const mensagem = `Olá! Tudo bem? 😊
-
-Gostaria de agendar um horário:
-
-💅 Serviço: ${servico}
-📅 Data: ${data}
-⏰ Horário: ${horario}
-👤 Nome: ${nome}
-📱 Telefone: ${telefone}`;
-
-    const url = `https://wa.me/5511973086170?text=${encodeURIComponent(mensagem)}`;
-
-    window.open(url, "_blank");
-
-  } catch (error) {
-    alert("Erro ao salvar agendamento!");
-    console.error(error);
-  }
+  const url = "https://wa.me/5511973086170?text=teste";
+  window.open(url, "_blank");
 }
-
-window.confirmarAgendamento = confirmarAgendamento;
