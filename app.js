@@ -87,6 +87,8 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   async function confirmarAgendamento() {
+alert('1 - função chamou');
+    
     const nome = document.getElementById('nome').value;
     const telefone = document.getElementById('telefone').value;
     const servico = document.getElementById('servico').value;
@@ -97,7 +99,8 @@ window.addEventListener('DOMContentLoaded', function () {
       alert('Preencha todos os campos!');
       return;
     }
-
+alert('2 campos ok, tentando salvar no firebase');
+    
     try {
       await db.collection('agendamentos').add({
         nome,
@@ -107,6 +110,8 @@ window.addEventListener('DOMContentLoaded', function () {
         horario,
         criadoEm: firebase.firestore.FieldValue.serverTimestamp()
       });
+
+      alert(3' - Salvar no firebase!');
 
       const dataFormatada = formatarDataBR(data);
       const mensagem = `Olá! Gostaria de confirmar meu agendamento:%0A%0A👤 ${nome}%0A📱 ${telefone}%0A✂️ ${servico}%0A📅 ${dataFormatada}%0A🕐 ${horario}`;
