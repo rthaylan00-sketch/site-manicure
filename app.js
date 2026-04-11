@@ -111,7 +111,7 @@ alert('2 campos ok, tentando salvar no firebase');
         criadoEm: firebase.firestore.FieldValue.serverTimestamp()
       });
 
-      alert(3' - Salvar no firebase!');
+      alert('3 - Salvar no firebase!');
 
       const dataFormatada = formatarDataBR(data);
       const mensagem = `Olá! Gostaria de confirmar meu agendamento:%0A%0A👤 ${nome}%0A📱 ${telefone}%0A✂️ ${servico}%0A📅 ${dataFormatada}%0A🕐 ${horario}`;
