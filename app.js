@@ -114,9 +114,10 @@ alert('2 campos ok, tentando salvar no firebase');
       alert('3 - Salvar no firebase!');
 
       const dataFormatada = formatarDataBR(data);
-      const mensagem = `Olá! Gostaria de confirmar meu agendamento:%0A%0A👤 ${nome}%0A📱 ${telefone}%0A✂️ ${servico}%0A📅 ${dataFormatada}%0A🕐 ${horario}`;
-      const url = `https://wa.me/5511973086170?text=${mensagem}`;
-      window.location.href = url;
+const mensagem = `Olá! Tudo bem? 😊%0A%0AGostaria de agendar um horário:%0A%0A💅 Serviço: ${servico}%0A📅 Data: ${dataFormatada}%0A⏰ Horário: ${horario}%0A📍 Local: Rua Pedro Escobar 06%0APonto de referência: Em cima da Farmácia Vital Farma%0A🗺️ Mapa: https://maps.google.com/?q=Rua+Pedro+Escobar+06%0A%0A👤 Nome: ${nome}%0A📱 Telefone: ${telefone}%0A%0AAguardo confirmação 💖`;
+const url = `https://wa.me/5511973086170?text=${mensagem}`;
+window.location.href = url;
+
 
 
     } catch (erro) {
