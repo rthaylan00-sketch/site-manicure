@@ -115,7 +115,7 @@ alert('2 campos ok, tentando salvar no firebase');
 
       const dataFormatada = formatarDataBR(data);
       const mensagem = `Olá! Gostaria de confirmar meu agendamento:%0A%0A👤 ${nome}%0A📱 ${telefone}%0A✂️ ${servico}%0A📅 ${dataFormatada}%0A🕐 ${horario}`;
-      const url = `https://wa.me/5511973086170?text=${mensagem}`;
+     const url = `https://wa.me/5511973086170?text=${encodeURIComponent(mensagem)}`;
       window.open(url, "_blank");
 
     } catch (erro) {
