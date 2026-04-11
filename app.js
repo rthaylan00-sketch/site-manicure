@@ -51,9 +51,9 @@ window.addEventListener('DOMContentLoaded', function () {
         .get();
 
       const horariosOcupados = snapshot.docs.map(doc => doc.data().horario);
-      const todosHorarios = ['13:00', '16:30', '19:00', '21:30'];
+      const todosHorarios = ['09:00', '13:00', '16:30', '19:00'];
 
-      selectHorario.innerHTML = '<option value="">Selecione...</option>';
+    selectHorario.innerHTML = '<option value="">Selecione...</option>';
 
       todosHorarios.forEach(horario => {
         if (!horariosOcupados.includes(horario)) {
