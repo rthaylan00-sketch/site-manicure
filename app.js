@@ -87,7 +87,6 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   async function confirmarAgendamento() {
-alert('1 - função chamou');
     
     const nome = document.getElementById('nome').value;
     const telefone = document.getElementById('telefone').value;
@@ -99,7 +98,6 @@ alert('1 - função chamou');
       alert('Preencha todos os campos!');
       return;
     }
-alert('2 campos ok, tentando salvar no firebase');
     
     try {
       await db.collection('agendamentos').add({
@@ -110,8 +108,6 @@ alert('2 campos ok, tentando salvar no firebase');
         horario,
         criadoEm: firebase.firestore.FieldValue.serverTimestamp()
       });
-
-      alert('3 - Salvar no firebase!');
 
       const dataFormatada = formatarDataBR(data);
 const mensagem = `Olá! Tudo bem? 😊%0A%0AGostaria de agendar um horário:%0A%0A💅 Serviço: ${servico}%0A📅 Data: ${dataFormatada}%0A⏰ Horário: ${horario}%0A📍 Local: Rua Pedro Escobar 06%0APonto de referência: Em cima da Farmácia Vital Farma%0A🗺️ Mapa: https://maps.google.com/?q=Rua+Pedro+Escobar+06%0A%0A👤 Nome: ${nome}%0A📱 Telefone: ${telefone}%0A%0AAguardo confirmação 💖`;
