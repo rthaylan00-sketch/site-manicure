@@ -2,10 +2,12 @@
 const firebaseConfig = {
   apiKey: "AIzaSyCeQD2PNlXf2j8lTbit6ktOZR2FtAufLbY",
   authDomain: "agendapro-788d0.firebaseapp.com",
+  databaseURL: "https://agendapro-788d0-default-rtdb.firebaseio.com",
   projectId: "agendapro-788d0",
-  storageBucket: "agendapro-788d0.appspot.com",
+  storageBucket: "agendapro-788d0.firebasestorage.app",
   messagingSenderId: "627296929583",
-  appId: "1:627296929583:web:d1773f21704407b41a43da"
+  appId: "1:627296929583:web:cfabd5e29ef204471a43da",
+  measurementId: "G-98ZM1P83QX"
 };
 
 if (!firebase.apps.length) {
@@ -13,8 +15,6 @@ if (!firebase.apps.length) {
 }
 
 const db = firebase.firestore();
-
-
 
 function verificarSenha() {
   const senha = document.getElementById('campo-senha').value;
@@ -56,7 +56,7 @@ async function carregarAgendamentos() {
       <p><strong>Data:</strong> ${data.data ? formatarDataBR(data.data) : "-"}</p>
       <p><strong>Hora:</strong> ${data.horario || "-"}</p>
       <button class="btn" onclick="cancelar('${docSnap.id}')">Cancelar</button>
-    ;`
+    `;
 
     lista.appendChild(div);
   });
